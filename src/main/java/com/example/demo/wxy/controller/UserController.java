@@ -1,11 +1,13 @@
 package com.example.demo.wxy.controller;
 
 
+import com.example.demo.wxy.api.dto.UserInfoRegisterDTO;
 import com.example.demo.wxy.entity.User;
 import com.example.demo.wxy.service.IUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,6 +34,13 @@ public class UserController {
     @RequestMapping(value = "/info", method = RequestMethod.GET)
     public List<User> getUserInfo() {
         return iUserService.list();
+    }
+
+
+    @ApiOperation(value = "用户注册")
+    @RequestMapping(value = "/insert", method = RequestMethod.POST)
+    public Integer insertUserInfo(@RequestBody UserInfoRegisterDTO registerDTO) {
+        return iUserService.insertUserInfo(registerDTO);
     }
 }
 

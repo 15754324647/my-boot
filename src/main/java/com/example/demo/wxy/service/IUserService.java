@@ -1,7 +1,8 @@
 package com.example.demo.wxy.service;
 
-import com.example.demo.wxy.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.example.demo.wxy.api.dto.UserInfoRegisterDTO;
+import com.example.demo.wxy.entity.User;
 
 /**
  * <p>
@@ -12,5 +13,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2019-12-14
  */
 public interface IUserService extends IService<User> {
+
+    Integer insertUserInfo(UserInfoRegisterDTO dto);
 
 }
