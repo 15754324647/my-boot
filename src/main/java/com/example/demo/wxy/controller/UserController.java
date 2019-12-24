@@ -1,6 +1,7 @@
 package com.example.demo.wxy.controller;
 
 
+import com.example.demo.common.Response;
 import com.example.demo.wxy.api.dto.UserInfoRegisterDTO;
 import com.example.demo.wxy.entity.User;
 import com.example.demo.wxy.service.IUserService;
@@ -32,15 +33,19 @@ public class UserController {
 
     @ApiOperation(value = "用户信息")
     @RequestMapping(value = "/info", method = RequestMethod.GET)
-    public List<User> getUserInfo() {
-        return iUserService.list();
+    public Response<List<User>> getUserInfo() {
+        Response<List<User>> response = new Response<>();
+        response.setResult(iUserService.list());
+        return response;
     }
 
 
     @ApiOperation(value = "用户注册")
     @RequestMapping(value = "/insert", method = RequestMethod.POST)
-    public Integer insertUserInfo(@RequestBody UserInfoRegisterDTO registerDTO) {
-        return iUserService.insertUserInfo(registerDTO);
+    public Response<Integer> insertUserInfo(@RequestBody UserInfoRegisterDTO registerDTO) {
+        Response<Integer> response = new Response<>();
+        response.setResult(iUserService.insertUserInfo(registerDTO));
+        return response;
     }
 }
 

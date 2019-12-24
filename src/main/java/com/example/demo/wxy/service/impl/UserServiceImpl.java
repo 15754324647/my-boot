@@ -27,7 +27,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     public Integer insertUserInfo(UserInfoRegisterDTO dto) {
         User user = new User();
         BeanUtils.copyProperties(dto, user);
-
         return userMapper.insert(user);
     }
 }
