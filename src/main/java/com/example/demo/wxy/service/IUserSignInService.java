@@ -1,16 +1,18 @@
 package com.example.demo.wxy.service;
 
+import com.example.demo.wxy.entity.UserSignIn;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.example.demo.wxy.entity.UserFan;
 
 /**
  * <p>
- * 用户粉丝信息表 服务类
+ * 用户签到表 服务类
  * </p>
  *
  * @author Graciano
- * @since 2019-12-14
+ * @since 2019-12-24
  */
-public interface IUserFanService extends IService<UserFan> {
+public interface IUserSignInService extends IService<UserSignIn> {
+
     String test(Long id);
+
 }

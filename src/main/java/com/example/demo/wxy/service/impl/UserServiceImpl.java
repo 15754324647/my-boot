@@ -29,4 +29,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         BeanUtils.copyProperties(dto, user);
         return userMapper.insert(user);
     }
+
+    @Override
+    public String test(Long id) {
+        return "测试调用方法UserServiceImpl";
+    }
 }

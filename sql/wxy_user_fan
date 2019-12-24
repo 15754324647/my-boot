@@ -1,0 +1,17 @@
+CREATE TABLE `wxy_user_fan` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '自增主键',
+  `user_id` bigint(20) NOT NULL COMMENT '用户ID',
+  `user_type` int(11) NOT NULL DEFAULT '1' COMMENT '用户类型(1:普通用户 2:机构用户)',
+  `user_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '' COMMENT '用户名称',
+  `fan_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '粉丝名称',
+  `is_blacklist` bit(1) NOT NULL DEFAULT b'0' COMMENT '是否拉黑(0:否,1:是)',
+  `fan_avatar` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT '粉丝用户头像信息',
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  `is_deleted` bit(1) NOT NULL DEFAULT b'0' COMMENT '是否删除(0:否,1:是)',
+  `fan_id` bigint(20) NOT NULL COMMENT '粉丝用户ID',
+  `is_friend` bit(1) DEFAULT b'0' COMMENT '是否已加好友(0:否 1:是)\n',
+  PRIMARY KEY (`id`) USING BTREE,
+  KEY `idx_user_id_user_type` (`user_id`,`user_type`),
+  KEY `idx_is_deleted_user_type_is_blacklist_created_at` (`is_deleted`,`user_type`,`is_blacklist`,`created_at`)
+) ENGINE=InnoDB AUTO_INCREMENT=2425 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC COMMENT='用户粉丝信息表';

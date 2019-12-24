@@ -126,7 +126,7 @@ public class CodeGenerator {
         StrategyConfig strategy = new StrategyConfig();
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
-                strategy.setSuperEntityClass("com.example.demo.wxy.base.BaseEntity");
+        strategy.setSuperEntityClass("com.example.demo.wxy.base.BaseEntity");
         strategy.setEntityLombokModel(true);
         strategy.setRestControllerStyle(true);
         // 公共父类

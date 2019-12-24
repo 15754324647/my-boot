@@ -16,4 +16,6 @@ public interface IUserService extends IService<User> {
 
     Integer insertUserInfo(UserInfoRegisterDTO dto);
 
+    String test(Long id);
+
 }

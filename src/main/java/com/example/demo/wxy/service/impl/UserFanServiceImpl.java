@@ -1,9 +1,9 @@
 package com.example.demo.wxy.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.demo.wxy.entity.UserFan;
 import com.example.demo.wxy.mapper.UserFanMapper;
 import com.example.demo.wxy.service.IUserFanService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**
@@ -17,4 +17,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserFanServiceImpl extends ServiceImpl<UserFanMapper, UserFan> implements IUserFanService {
 
+    @Override
+    public String test(Long id) {
+        return "测试调用方法UserFanServiceImpl";
+    }
 }
