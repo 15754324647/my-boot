@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.List;
 
@@ -54,11 +55,17 @@ public class TestController {
             }
         }
         list.forEach(service -> {
-            Class<?> serviceClass = service.getClass();
             try {
-                Method test = serviceClass.getMethod("test", Long.class);
+                Method test = ((Class) service).getMethod("test", Long.class);
+                Object invoke = test.invoke(((Class) service).newInstance(), 1L);
                 System.out.println(test.getReturnType().getSimpleName());
             } catch (NoSuchMethodException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (InvocationTargetException e) {
+                e.printStackTrace();
+            } catch (InstantiationException e) {
                 e.printStackTrace();
             }
 
